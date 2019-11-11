@@ -51,3 +51,6 @@ public:
         return virtual_head->next;
     }
 };
+
+// 执行用时 :16 ms, 在所有 cpp 提交中击败了99.79%的用户
+// 内存消耗 :9.8 MB, 在所有 cpp 提交中击败了77.20%的用户
