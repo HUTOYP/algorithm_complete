@@ -10,6 +10,7 @@ class Solution {
 public:
     /**
      * 给定头尾指针的链表反转函数
+     * 需要定义二级指针或使用引用，否则ListNode* 仍然是一个值传递
      **/
     ListNode* reverseList(ListNode* head) {
         ListNode* p = head;
@@ -35,10 +36,7 @@ public:
             // 找到局部反转的头和尾
             ListNode* first = pre->next;
             ListNode* last = pre->next;
-            for (int i = 1; i < k; ++i) {
-                if (last == NULL) break;
-                last = last->next;
-            }
+            for (int i = 1; i < k && last != NULL; ++i) { last = last->next; }
             if (last == NULL) break;
             
             // 记录局部反转链表的后一节点
@@ -47,7 +45,6 @@ public:
             last->next = NULL;
             pre->next = reverseList(first);
             first->next = post;
-            
             pre = first;
         }
         
